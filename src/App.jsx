@@ -3,6 +3,8 @@ import Layout from "./components/Layout";
 import CardGrids from "./components/CardGrid";
 import Users from "./pages/Users";
 import SideBar from "./components/Sidebar";
+import Posts from "./pages/Posts";
+import Albums from "./pages/Albums";
 
 function App() {
   // const dummyUsers = [

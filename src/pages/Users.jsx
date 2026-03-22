@@ -12,7 +12,8 @@ const Users = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   const [selectedCity, setSelectedCity] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [selectedUser, setSelectedUser] = useState(null);
+  console.log(selectedUser);
   const limit = 8;
   const lastIndex = currentPage * limit;
   const firstIndex = lastIndex - limit;
@@ -71,13 +72,23 @@ const Users = () => {
       {sortedData.length === 0 ? (
         <p>No users found</p>
       ) : (
-        <CardGrids data={paginatedData} />
+        <CardGrids data={paginatedData} onCardClick={setSelectedUser} />
       )}
       <Pagination
         page={currentPage}
         totalPages={totalPages}
         onSetPage={setCurrentPage}
       />
+      {selectedUser && (
+        <div>
+          <h2>{selectedUser.name}</h2>
+          <p>{selectedUser.email}</p>
+          <p>{selectedUser.phone}</p>
+          <p>{selectedUser.address.city}</p>
+
+          <button onClick={() => setSelectedUser(null)}>Close</button>
+        </div>
+      )}
     </div>
   );
 };

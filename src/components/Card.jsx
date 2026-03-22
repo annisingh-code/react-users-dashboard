@@ -1,6 +1,6 @@
-const Card = ({ title, subtitle }) => {
+const Card = ({ title, subtitle, user, onCardClick }) => {
   return (
-    <div className="card">
+    <div className="card" onClick={() => onCardClick(user)}>
       <style>{`
         .card {
           background: white;

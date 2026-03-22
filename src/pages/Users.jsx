@@ -72,7 +72,12 @@ const Users = () => {
       {sortedData.length === 0 ? (
         <p>No users found</p>
       ) : (
-        <CardGrids data={paginatedData} onCardClick={setSelectedUser} />
+        <CardGrids
+          data={paginatedData}
+          onCardClick={setSelectedUser}
+          getTitle={(item) => item.name}
+          getSubtitle={(item) => item.id}
+        />
       )}
       <Pagination
         page={currentPage}
